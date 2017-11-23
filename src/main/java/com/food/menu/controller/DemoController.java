@@ -13,4 +13,8 @@ public class DemoController {
 
 	}
 
+	@RequestMapping(name = "/hello", method = { RequestMethod.GET })
+	public String sayHi() {
+		return "Hello World";
+	}
 }
