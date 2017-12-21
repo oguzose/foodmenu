@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller	
 public class ViewController {
 	
-	@RequestMapping("/")
+	/*@RequestMapping("/")
 	public String index(Model model){
 		
 		model.addAttribute("datetime", new Date());
@@ -17,6 +17,6 @@ public class ViewController {
 		model.addAttribute("mode", "development");
 		
 		return "index";
-	}
+	}*/
 
 }

@@ -1,0 +1,64 @@
+<div>
+	<div class="row">
+		<div class="col-lg-offset-2 col-lg-8">
+			<!-- Get all bookings or only affordable ones -->
+			<div class="btn-group" role="group">
+				<button ng-click="vm.getAll()" type="button" class="btn btn-default">Tümü</button>
+				<button ng-click="vm.getAffordable()" type="button"
+					class="btn btn-default">15 dk altı</button>
+			</div>
+
+			<!-- Display bookings in a table -->
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Yemek ismi</th>
+						<th>Kategori</th>
+						<th>Açıklama</th>
+						<th>Resim</th>
+						<th style="width: 90px"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="eat in vm.food">
+						<td>{{eat.mealName | uppercase}}</td>
+						<td>{{eat.categoryName}}</td>
+						<td>{{eat.description}}</td>
+						<td>{{eat.image}}</td>
+						<td>
+							<button class="btn btn-danger" ng-click="vm.deleteMeal(eat.id)">Sil</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="col-sm-8 col-sm-offset-2">
+			<h2>Yemek Ekle</h2>
+			<hr></hr>
+			<form>
+				<div class="form-group">
+					<label for="name">Yemek ismi:</label> <input type="text"
+						class="form-control" ng-model="vm.mealInfo.mealName" id="name" />
+				</div>
+				<div class="form-group">
+					<label for="category">Kategori:</label> <input class="form-control"
+						ng-model="vm.mealInfo.categoryName" id="category" />
+				</div>
+				<div class="form-group">
+					<label for="desc"> Açıklama:</label> <input class="form-control"
+						ng-model="vm.mealInfo.description" id="desc" />
+				</div>
+				<div class="form-group">
+					<label for="image"> Resim:</label> <input class="form-control"
+						ng-model="vm.mealInfo.image" id="image" />
+				</div>
+				<button ng-show="vm.mealInfo.id == -1" class="btn btn-success"
+					ng-click="vm.createMeal(vm.mealInfo)">Kaydet</button>
+				<button ng-show="vm.mealInfo.id !== -1" class="btn btn-info"
+					ng-click="vm.update(vm.mealInfo)">Güncelle</button>
+
+			</form>
+		</div>
+	</div>
+</div>
